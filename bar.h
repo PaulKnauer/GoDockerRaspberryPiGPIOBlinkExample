@@ -6,6 +6,7 @@ class Bar {
 		Bar();
 		~Bar();
 		void show();
+	private:
 };
 
 #endif

@@ -6,7 +6,7 @@ objects = foo.o bar.o
 
 all: main
 
-main: $(objects)
+main: $(objects) main.cpp
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 $(objects): %.o: %.cpp
