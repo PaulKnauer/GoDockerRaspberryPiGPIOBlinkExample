@@ -2,7 +2,7 @@ CC      = g++
 CFLAGS  = -I/home/pi/RaspberryPiI2CExample/
 LDFLAGS = 
 
-objects = foo.o bar.o
+objects = 
 
 all: main
 
