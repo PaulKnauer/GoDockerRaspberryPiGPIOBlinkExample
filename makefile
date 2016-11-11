@@ -2,9 +2,12 @@ CC      = g++
 CFLAGS  = -I/home/pi/RaspberryPiI2CExample/
 LDFLAGS = 
 
-objects = 
+objects = i2c.o
 
-all: main
+all: docker
+
+docker: main
+	docker build -t main .
 
 main: $(objects) main.cpp
 	$(CC) -o $@ $^ $(LDFLAGS)
@@ -15,4 +18,5 @@ $(objects): %.o: %.cpp
 .PHONY: all clean
 
 clean:
-	rm *.o
+	rm *.o main
+	docker rmi -f main
