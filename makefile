@@ -15,7 +15,7 @@ main: $(objects) main.cpp
 $(objects): %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
-.PHONY: all clean
+.PHONY: all clean docker
 
 clean:
 	rm *.o main
