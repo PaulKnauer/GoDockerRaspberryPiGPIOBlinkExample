@@ -1,6 +1,6 @@
 CC      = g++
 CFLAGS  = -I/home/pi/RaspberryPiI2CExample/
-LDFLAGS = 
+LDFLAGS = -lwiringPi
 
 objects = i2c.o
 
