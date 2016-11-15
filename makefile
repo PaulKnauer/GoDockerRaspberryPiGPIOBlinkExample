@@ -7,7 +7,7 @@ objects = i2c.o
 all: docker
 
 docker: main
-	docker build -t main .
+	docker build -t paulknauer/rpi-gpio-blink .
 
 main: $(objects) main.cpp
 	$(CC) -o $@ $^ $(LDFLAGS)
@@ -15,8 +15,10 @@ main: $(objects) main.cpp
 $(objects): %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
-.PHONY: all clean docker
+.PHONY: all clean docker docker-rmi
 
-clean:
+clean: docker-rmi
 	rm *.o main
-	docker rmi -f main
+
+docker-rmi:
+	docker rmi -f paulknauer/rpi-gpio-blink
