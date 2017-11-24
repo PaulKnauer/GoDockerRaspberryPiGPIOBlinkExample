@@ -1,7 +1,5 @@
 #include <wiringPi.h>
 
-#include "i2c.h"
-
 int main() {
   wiringPiSetup();
   pinMode(0, OUTPUT);

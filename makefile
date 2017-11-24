@@ -2,7 +2,7 @@ CC      = g++
 CFLAGS  = -I/home/pi/RaspberryPiI2CExample/
 LDFLAGS = -lwiringPi
 
-objects = i2c.o
+objects = 
 
 all: docker
 
