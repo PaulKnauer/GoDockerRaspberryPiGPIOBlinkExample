@@ -1,15 +1,13 @@
-FROM resin/rpi-raspbian
+FROM resin/rpi-raspbian as builder
 
 RUN apt-get -y update \
-&& apt-get -y install build-essential git-core \
-&& git clone git://git.drogon.net/wiringPi \
-&& cd wiringPi \
-&& ./build \
-&& rm -rf /wiringPi \
-&& apt-get -y remove build-essential git-core \
-&& apt-get purge \
-&& apt-get autoremove
+  && apt-get -y install build-essential git-core \
+  && git clone git://git.drogon.net/wiringPi \
+  && cd wiringPi \
+  && ./build
 
-ADD main /main
+FROM resin/rpi-raspbian
+
+COPY --from=builder main /main
 
 CMD ["/main"]
