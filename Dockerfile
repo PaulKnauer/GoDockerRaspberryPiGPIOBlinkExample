@@ -1,15 +1,20 @@
-FROM resin/rpi-raspbian
+FROM raspbian/stretch AS builder
+
+LABEL autodelete="true"
 
 RUN apt-get -y update \
-&& apt-get -y install build-essential git-core \
-&& git clone git://git.drogon.net/wiringPi \
-&& cd wiringPi \
-&& ./build \
-&& rm -rf /wiringPi \
-&& apt-get -y remove build-essential git-core \
-&& apt-get purge \
-&& apt-get autoremove
+&& apt-get -y install build-essential wiringpi
 
-ADD main /main
+COPY main.cpp .
+COPY Makefile .
+
+RUN make main
+
+FROM raspbian/stretch
+
+RUN apt-get -y update \
+&& apt-get -y install wiringpi 
+
+COPY --from=builder main .
 
 CMD ["/main"]
