@@ -1,22 +1,22 @@
 #include <wiringPi.h>
 
 void setup() {
-
+  wiringPiSetup();
+  pinMode(0, OUTPUT);
 }
 
 void loop() {
-
+  digitalWrite(0, HIGH);
+  delay(500);
+  digitalWrite(0,  LOW);
+  delay(500);
 }
 
 int main() {
-  wiringPiSetup();
-  pinMode(0, OUTPUT);
+  setup();
 
   for(;;) {
-    digitalWrite(0, HIGH);
-    delay(500);
-    digitalWrite(0,  LOW);
-    delay(500);
+    loop();
   }
 
   return 0;
