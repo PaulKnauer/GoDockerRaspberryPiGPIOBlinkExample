@@ -2,9 +2,9 @@ CC      = g++
 CFLAGS  = -I/home/pi/RaspberryPiI2CExample/
 LDFLAGS = -lwiringPi
 
-objects = 
+objects = main.o
 
-all: docker
+all: main
 
 docker: main
 	docker build -t paulknauer/rpi-gpio-blink .
@@ -15,12 +15,12 @@ docker-run: docker
 main: $(objects) main.cpp
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-$(objects): %.o: %.cpp
+.o.cpp:
 	$(CC) -c $(CFLAGS) $< -o $@
 
 .PHONY: all clean docker docker-rmi
 
-clean: docker-clean
+clean: 
 	rm -f *.o main
 
 docker-clean:
