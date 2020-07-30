@@ -3,7 +3,7 @@ LDFLAGS = -lwiringPi
 
 all: main
 
-docker: main
+docker:
 	docker build -t paulknauer/rpi-gpio-blink .
 
 docker-run: docker
