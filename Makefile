@@ -1,8 +1,5 @@
 CC      = g++
-CFLAGS  = -I/home/pi/RaspberryPiI2CExample/
 LDFLAGS = -lwiringPi
-
-objects = main.o
 
 all: main
 
@@ -12,11 +9,8 @@ docker: main
 docker-run: docker
 	docker run -d --name blink --restart unless-stopped --cap-add SYS_RAWIO --device /dev/mem paulknauer/rpi-gpio-blink
 
-main: $(objects) main.cpp
+main: main.cpp
 	$(CC) -o $@ $^ $(LDFLAGS)
-
-.o.cpp:
-	$(CC) -c $(CFLAGS) $< -o $@
 
 .PHONY: all clean docker docker-rmi
 
