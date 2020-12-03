@@ -10,7 +10,7 @@ docker:
 
 .PHONY: docker-run
 docker-run: docker
-	docker run -d --name blink --restart unless-stopped --cap-add SYS_RAWIO --device /dev/mem paulknauer/rpi-gpio-blink
+	docker run -d --name blink --restart always --cap-add SYS_RAWIO --device /dev/mem paulknauer/rpi-gpio-blink
 
 main: main.cpp
 	$(CC) -o $@ $^ $(LDFLAGS)
