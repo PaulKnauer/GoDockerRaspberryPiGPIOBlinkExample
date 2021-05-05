@@ -13,7 +13,7 @@ sudo dpkg -i wiringpi-latest.deb
 
 gpio -v
 ```
-##How to run
+## How to run
 To  run the project make sure that you have Docker installed on your Raspberry Pi
 Also make sure that you can use make, if not then install build tools:
 ```
