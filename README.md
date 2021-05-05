@@ -12,3 +12,11 @@ sudo dpkg -i wiringpi-latest.deb
 
 gpio -v
 ```
+To  run the project make sure that you have Docker installed on your Raspberry Pi, execute the following from within the project directory:
+```
+make docker-run
+```
+...then to clean up run:
+```
+make docker-clean
+```
