@@ -1,4 +1,4 @@
-# RaspberryPiI2CExample
+# C++ Docker Raspberry Pi GPIO Blink Example
 
 ## About
 An example of how to use Docker on a Raspberry Pi showing that you can still access the GPIO pins from within a running Docker container.
@@ -6,6 +6,7 @@ An example of how to use Docker on a Raspberry Pi showing that you can still acc
 docker run -d --name blink --restart always --cap-add SYS_RAWIO --device /dev/mem paulknauer/rpi-gpio-blink
 ```
 Written in C++, this relies on the excellent WiringPi library.
+WiringPi gets installed in the multi-stage docker build, the code snippet below can be ised if you need to install wiringPi manually.
 
 ```
 wget https://project-downloads.drogon.net/wiringpi-latest.deb
