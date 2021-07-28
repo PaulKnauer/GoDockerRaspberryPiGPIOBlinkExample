@@ -1,4 +1,4 @@
-# C++ Docker Raspberry Pi GPIO Blink Example
+# Go (Golang) Docker Raspberry Pi GPIO Blink Example
 
 ## About
 An example of how to use Docker on a Raspberry Pi showing that you can still access the GPIO pins from within a running Docker container.
