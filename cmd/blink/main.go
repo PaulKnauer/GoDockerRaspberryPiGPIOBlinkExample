@@ -1,6 +1,6 @@
 package example
 
-// #cgo LDFLAGS: -lwiringpi
+// #cgo LDFLAGS: -lwiringPi
 //
 // #include <wiringPi.h>
 import "C"
