@@ -6,21 +6,21 @@ package example
 import "C"
 
 func setup() {
-  C.wiringPiSetup()
-  C.pinMode(0, OUTPUT)
+	C.wiringPiSetup()
+	C.pinMode(0, C.OUTPUT)
 }
 
 func loop() {
-  C.digitalWrite(0, HIGH)
-  C.delay(500)
-  C.digitalWrite(0,  LOW)
-  C.delay(500)
+	C.digitalWrite(0, C.HIGH)
+	C.delay(500)
+	C.digitalWrite(0, C.LOW)
+	C.delay(500)
 }
 
 func main() {
-  setup()
+	setup()
 
-  for(;;) {
-    loop()
-  }
+	for {
+		loop()
+	}
 }

@@ -18,11 +18,6 @@ RUN make build
 
 FROM raspbian/stretch
 
-RUN addgroup --gid 2000 paulknauer && \
-    adduser --system --uid 2000 --ingroup paulknauer paulknauer
-    
-USER paulknauer:paulknauer
-
 WORKDIR /usr/local/bin
 
 RUN apt-get -y update \

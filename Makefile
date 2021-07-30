@@ -6,7 +6,7 @@ all: build
 
 .PHONY: build
 build:
-	go build -mod=vendor cmd/gitlab-api-tool/main.go
+	go build -mod=vendor cmd/blink/main.go
 
 .PHONY: vendor
 vendor:
@@ -19,7 +19,7 @@ gofmt:
 
 .PHONY: test
 test:
-	go test ./... -cover -coverprofile coverage.out -race -mod=vendor -v && \
+	go test ./... -cover -coverprofile coverage.out -mod=vendor -v && \
 	go tool cover -func=coverage.out
 
 .PHONY: clean
