@@ -2,7 +2,7 @@ CC      = g++
 LDFLAGS = -lwiringPi
 
 .PHONY: all
-all: main
+all: build
 
 .PHONY: build
 build:
