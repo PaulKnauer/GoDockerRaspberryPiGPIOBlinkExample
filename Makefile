@@ -6,7 +6,7 @@ all: build
 
 .PHONY: build
 build:
-	go build -mod=vendor cmd/blink/main.go
+	go build -o main -mod=vendor cmd/blink/main.go
 
 .PHONY: vendor
 vendor:

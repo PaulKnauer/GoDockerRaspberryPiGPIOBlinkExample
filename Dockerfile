@@ -1,14 +1,13 @@
-FROM arm64v8/golang:1.15-stretch AS builder
+FROM ubuntu:questing AS builder
 
 LABEL autodelete="true"
 
 RUN apt-get -y update \
-&& apt-get -y install build-essential wiringpi
+&& apt-get -y install build-essential golang wiringpi libwiringpi-dev
 
 WORKDIR /usr/src/app
 
 COPY Makefile .
-COPY pkg pkg
 COPY go.mod go.mod
 COPY cmd cmd
 
@@ -16,7 +15,9 @@ RUN make vendor
 
 RUN make build
 
-FROM raspbian/stretch
+RUN chmod +x main
+
+FROM ubuntu:questing
 
 WORKDIR /usr/local/bin
 
